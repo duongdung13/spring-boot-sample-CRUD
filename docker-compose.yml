@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  postgres:
+    container_name: postgres-mobile
+    image: postgres:12-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=test
+  
+volumes:
+  postgres:
