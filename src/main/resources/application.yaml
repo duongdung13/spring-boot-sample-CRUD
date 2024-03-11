@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+
+spring:
+  application:
+    name: com.example.api
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/test?schema=public&sslmode=prefer"
+    username: "postgres"
+    password: "123456"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
