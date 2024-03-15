@@ -1,8 +1,11 @@
 package com.example.api.demo.spring.boot.dto;
 
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class UserCreateRequest {
+    @Size(min = 3, message = "Username require at least 3 character")
     private String username;
     private String password;
     private String firstName;
