@@ -1,5 +1,6 @@
 package com.example.api.demo.spring.boot.controller;
 
+import com.example.api.demo.spring.boot.dto.ApiResponse;
 import com.example.api.demo.spring.boot.dto.UserCreateRequest;
 import com.example.api.demo.spring.boot.dto.UserUpdateRequest;
 import com.example.api.demo.spring.boot.entity.User;
@@ -17,8 +18,11 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    User createUser(@RequestBody @Valid UserCreateRequest request) {
-        return userService.createUser(request);
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreateRequest request) {
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+        apiResponse.setResult(userService.createUser(request));
+
+        return apiResponse;
     }
 
     @GetMapping
