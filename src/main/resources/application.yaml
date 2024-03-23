@@ -4,12 +4,14 @@ server:
     context-path: /api
 
 spring:
+  config:
+    import: "optional:file:env.properties"
   application:
     name: com.example.api
   datasource:
-    url: "jdbc:postgresql://localhost:5432/test?schema=public&sslmode=prefer"
-    username: "postgres"
-    password: "123456"
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update

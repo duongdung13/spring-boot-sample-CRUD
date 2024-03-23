@@ -1,5 +1,6 @@
-package com.example.api.demo.spring.boot.dto.response;
+package com.example.api.demo.spring.boot.dto.request;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,8 +9,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class AuthenticationResponse {
-    boolean authenticated;
-
+public class IntrospectRequest {
+    @NotEmpty
     String token;
 }
