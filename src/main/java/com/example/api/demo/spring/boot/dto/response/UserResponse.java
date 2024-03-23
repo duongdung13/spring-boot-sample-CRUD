@@ -1,6 +1,5 @@
-package com.example.api.demo.spring.boot.entity;
+package com.example.api.demo.spring.boot.dto.response;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -12,10 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Entity(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+public class UserResponse {
     String id;
     String username;
     String password;

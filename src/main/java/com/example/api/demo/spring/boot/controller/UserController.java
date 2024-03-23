@@ -3,6 +3,7 @@ package com.example.api.demo.spring.boot.controller;
 import com.example.api.demo.spring.boot.dto.request.ApiResponse;
 import com.example.api.demo.spring.boot.dto.request.UserCreateRequest;
 import com.example.api.demo.spring.boot.dto.request.UserUpdateRequest;
+import com.example.api.demo.spring.boot.dto.response.UserResponse;
 import com.example.api.demo.spring.boot.entity.User;
 import com.example.api.demo.spring.boot.service.UserService;
 import jakarta.validation.Valid;
@@ -31,13 +32,15 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    User getUser(@PathVariable("userId") String userId) {
-        return userService.getUser(userId);
+    ApiResponse<UserResponse> getUser(@PathVariable("userId") String userId) {
+        return ApiResponse.<UserResponse>builder()
+                .result(userService.getUser(userId))
+                .build();
     }
 
     @PutMapping("/{userId}")
-    User updateUser(@PathVariable String userId, @RequestBody UserUpdateRequest request) {
-        return userService.updateUser(userId, request);
+    ApiResponse<UserResponse> updateUser(@PathVariable String userId, @RequestBody UserUpdateRequest request) {
+        return ApiResponse.<UserResponse>builder().result(userService.updateUser(userId, request)).build();
     }
 
     @DeleteMapping("/{userId}")
