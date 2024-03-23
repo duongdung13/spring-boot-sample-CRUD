@@ -1,5 +1,6 @@
-package com.example.api.demo.spring.boot.dto;
+package com.example.api.demo.spring.boot.dto.request;
 
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,7 +11,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserUpdateRequest {
+public class UserCreateRequest {
+    @Size(min = 3, message = "USERNAME_INVALID")
+    String username;
+    @Size(min = 3, message = "INVALID_PASSWORD")
     String password;
     String firstName;
     String lastName;

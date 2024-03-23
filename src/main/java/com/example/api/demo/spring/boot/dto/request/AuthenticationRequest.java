@@ -1,4 +1,4 @@
-package com.example.api.demo.spring.boot.dto;
+package com.example.api.demo.spring.boot.dto.request;
 
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserLoginRequest {
+public class AuthenticationRequest {
     @Size(min = 3, message = "USERNAME_INVALID")
     String username;
     @Size(min = 3, message = "INVALID_PASSWORD")

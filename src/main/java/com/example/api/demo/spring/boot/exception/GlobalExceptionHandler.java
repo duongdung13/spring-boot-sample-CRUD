@@ -1,6 +1,6 @@
 package com.example.api.demo.spring.boot.exception;
 
-import com.example.api.demo.spring.boot.dto.ApiResponse;
+import com.example.api.demo.spring.boot.dto.request.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

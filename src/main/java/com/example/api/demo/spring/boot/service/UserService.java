@@ -1,7 +1,7 @@
 package com.example.api.demo.spring.boot.service;
 
-import com.example.api.demo.spring.boot.dto.UserCreateRequest;
-import com.example.api.demo.spring.boot.dto.UserUpdateRequest;
+import com.example.api.demo.spring.boot.dto.request.UserCreateRequest;
+import com.example.api.demo.spring.boot.dto.request.UserUpdateRequest;
 import com.example.api.demo.spring.boot.entity.User;
 import com.example.api.demo.spring.boot.exception.AppException;
 import com.example.api.demo.spring.boot.exception.ErrorCode;

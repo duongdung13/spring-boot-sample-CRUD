@@ -1,8 +1,8 @@
 package com.example.api.demo.spring.boot.controller;
 
-import com.example.api.demo.spring.boot.dto.ApiResponse;
-import com.example.api.demo.spring.boot.dto.UserCreateRequest;
-import com.example.api.demo.spring.boot.dto.UserUpdateRequest;
+import com.example.api.demo.spring.boot.dto.request.ApiResponse;
+import com.example.api.demo.spring.boot.dto.request.UserCreateRequest;
+import com.example.api.demo.spring.boot.dto.request.UserUpdateRequest;
 import com.example.api.demo.spring.boot.entity.User;
 import com.example.api.demo.spring.boot.service.UserService;
 import jakarta.validation.Valid;

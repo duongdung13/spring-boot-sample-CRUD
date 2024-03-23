@@ -1,4 +1,4 @@
-package com.example.api.demo.spring.boot.dto;
+package com.example.api.demo.spring.boot.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
