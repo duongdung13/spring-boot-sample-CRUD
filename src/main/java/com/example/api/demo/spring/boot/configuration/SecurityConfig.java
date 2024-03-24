@@ -1,10 +1,10 @@
 package com.example.api.demo.spring.boot.configuration;
 
-import com.example.api.demo.spring.boot.enums.Role;
 import com.example.api.demo.spring.boot.helper.EnvHelper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -21,6 +21,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
     private final String[] publicEndpoints = {"/users", "/auth/login", "auth/introspect"};
 
@@ -28,7 +29,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(request ->
                 request.requestMatchers(HttpMethod.POST, publicEndpoints).permitAll()
-                        .requestMatchers(HttpMethod.GET, "/users").hasRole(Role.ADMIN.name())
+                        //.requestMatchers(HttpMethod.GET, "/users").hasRole(Role.ADMIN.name())
                         .anyRequest().authenticated()
         ); // hasAuthority("ROLE_ADMIN")
         httpSecurity.oauth2ResourceServer(oauth2 ->

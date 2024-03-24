@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -68,5 +69,18 @@ public class UserService {
     public UserResponse getUser(String id) {
         return userMapper.toUserResponse(userRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED)));
+    }
+
+    public UserResponse getMyInfo() {
+        var userAuth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("getName " + userAuth.getName());
+        String username = userAuth.getName();
+
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        if (userOptional.isEmpty()) {
+            throw new AppException(ErrorCode.USER_NOT_EXISTED);
+        }
+
+        return userMapper.toUserResponse(userOptional.get());
     }
 }
