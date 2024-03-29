@@ -23,7 +23,7 @@ import javax.crypto.spec.SecretKeySpec;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-    private final String[] publicEndpoints = {"/users", "/auth/login", "auth/introspect"};
+    private final String[] publicEndpoints = {"/users", "/auth/login", "auth/introspect", "upload-file"};
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
