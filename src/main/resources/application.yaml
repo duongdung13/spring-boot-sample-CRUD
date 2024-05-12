@@ -2,7 +2,9 @@ server:
   port: 8080
   servlet:
     context-path: /api
-
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
 spring:
   config:
     import: "optional:file:env.properties"

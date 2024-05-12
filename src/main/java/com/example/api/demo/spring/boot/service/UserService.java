@@ -26,7 +26,6 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private UserMapper userMapper;
-    @Autowired
     PasswordEncoder passwordEncoder;
 
     public UserResponse createUser(UserCreateRequest request) {

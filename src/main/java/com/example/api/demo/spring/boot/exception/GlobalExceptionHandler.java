@@ -23,6 +23,17 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(apiResponse);
     }
 
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    ResponseEntity<ApiResponse> handlingIllegalArgumentException(RuntimeException exception) {
+        log.error("RuntimeException: ", exception);
+        ApiResponse apiResponse = new ApiResponse();
+
+        apiResponse.setCode(ErrorCode.INVALID_INPUT.getCode());
+        apiResponse.setMessage(ErrorCode.INVALID_INPUT.getMessage());
+
+        return ResponseEntity.badRequest().body(apiResponse);
+    }
+
     @ExceptionHandler(value = AppException.class)
     ResponseEntity<ApiResponse> handlingAppException(AppException exception) {
         log.error("AppException: ", exception);
